@@ -7,7 +7,7 @@ class Pizza(db.Model):
     name = db.Column(db.String())
     ingredients = db.Column(db.String())
 
-    restaurantpizzas = db.relationship('RestaurantPizza', back_populates='pizza')
+    restaurant_pizzas = db.relationship('RestaurantPizza', back_populates='pizza')
 
     def __repr__(self):
         return f"<Pizza {self.name}>"

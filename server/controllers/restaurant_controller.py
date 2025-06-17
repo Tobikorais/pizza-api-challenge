@@ -2,11 +2,10 @@
 from flask import Blueprint, jsonify
 from ..config import db
 from ..models.restaurant import Restaurant
-from ..models.restaurant_pizza import RestaurantPizza
 
 restaurant_cntrl = Blueprint('restaurant', __name__)
 
-@restaurant_cntrl.route('/restaurants', methods=['GET'])
+@restaurant_cntrl.route('/', methods=['GET'])
 def get_restaurants():
     restaurants = Restaurant.query.all()
     result = []
@@ -18,7 +17,7 @@ def get_restaurants():
         })
     return jsonify(result), 200
 
-@restaurant_cntrl.route('/restaurants/<int:id>', methods=['GET'])
+@restaurant_cntrl.route('/<int:id>', methods=['GET'])
 def get_restaurant(id):
     restaurant = Restaurant.query.get(id)
 
@@ -30,7 +29,7 @@ def get_restaurant(id):
         'name': rp.pizza.name,
         'ingredients': rp.pizza.ingredients,
         'price': rp.price
-    }for rp in restaurant.restaurantpizzas]
+    }for rp in restaurant.pizzas]
 
     return jsonify ({
         'id': restaurant.id,
@@ -39,7 +38,7 @@ def get_restaurant(id):
         'pizzas': pizzas
     }), 200
 
-@restaurant_cntrl.route('/restaurants/<int:id>', methods=['DELETE'])
+@restaurant_cntrl.route('/<int:id>', methods=['DELETE'])
 def delete_restaurant(id):
     restaurant = Restaurant.query.get(id)
 

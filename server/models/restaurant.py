@@ -1,4 +1,4 @@
-from server.config import db  # Absolute import
+from server.config import db  
 
 class Restaurant(db.Model):
     __tablename__ = 'restaurants'

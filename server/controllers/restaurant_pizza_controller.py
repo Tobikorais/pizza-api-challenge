@@ -4,10 +4,10 @@ from ..models.restaurant_pizza import RestaurantPizza
 from ..models.restaurant import Restaurant
 from ..models.pizza import Pizza
 
-restaurant_pizza_cntrl = Blueprint('restairant_pizza', __name__)
+restaurant_pizza_cntrl = Blueprint('restaurant_pizza', __name__)
 
-@restaurant_pizza_cntrl.route('/restaurant_pizzas', methods=['POST'])
-def create_RestaurantPizza():
+@restaurant_pizza_cntrl.route('/', methods=['POST'])
+def create_restaurant_pizza():
     data = request.get_json()
     price = data.get('price')
     pizza_id = data.get('pizza_id')
@@ -49,8 +49,8 @@ def create_RestaurantPizza():
     }
     return jsonify(response), 201
 
-@restaurant_pizza_cntrl.route('/restaurant_pizzas', methods=['GET'])
-def get_all_REstaurantPizzas():
+@restaurant_pizza_cntrl.route('/', methods=['GET'])
+def get_all_restaurant_pizzas():
     restaurant_pizzas = RestaurantPizza.query.all()
     
     if not restaurant_pizzas:

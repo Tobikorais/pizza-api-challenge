@@ -4,7 +4,7 @@ from ..models.pizza import Pizza
 
 pizza_cntrl = Blueprint('pizza', __name__)
 
-@pizza_cntrl.route('/pizzas', methods=['GET'])
+@pizza_cntrl.route('/', methods=['GET'])
 def get_pizza():
     pizzas = Pizza.query.all()
 

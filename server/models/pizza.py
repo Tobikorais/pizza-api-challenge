@@ -1,4 +1,5 @@
 """Pizza model for Pizza API."""
+"""Pizza model for Pizza API."""
 from ..config import db
 
 class Pizza(db.Model):

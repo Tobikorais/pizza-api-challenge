@@ -1,5 +1,6 @@
 """RestaurantPizza join model for Pizza API."""
 """RestaurantPizza join model for Pizza API."""
+"""RestaurantPizza join model for Pizza API."""
 from ..config import db
 from sqlalchemy.orm import validates
 

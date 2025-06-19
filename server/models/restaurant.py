@@ -1,3 +1,4 @@
+# Relationship: Restaurant has many RestaurantPizzas
 """Restaurant model for Pizza API."""
 from server.config import db  
 

@@ -1,3 +1,4 @@
+"""Restaurant model for Pizza API."""
 from server.config import db  
 
 class Restaurant(db.Model):
